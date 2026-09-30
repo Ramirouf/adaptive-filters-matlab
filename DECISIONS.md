@@ -44,6 +44,7 @@
 
 - **Decided:** develop in Octave 11.3. No toolbox functions (own gamma sampler instead of `randg`/`gamrnd`), no Octave-only syntax, one function per file, `QUICK = true` mode (N = 10) for MATLAB Online's 15-minute compute limit.
 - **Why:** Octave is the only local install; MATLAB Online Basic is the only MATLAB access.
+- **Checked (2026-09-29):** in MATLAB R2026b with no toolboxes installed, Code Analyzer reports no issues and the full `run_all` passes every check (4.3 min on an M1, against 17 min in Octave). The only MATLAB-specific change needed: R2025a and later follow a dark system theme when saving figures, so `sim/make_figure.m` sets `theme(fig, 'light')` inside a `try` (Octave has no `theme`).
 
 ## 2026-09-29: Repo outside Google Drive
 

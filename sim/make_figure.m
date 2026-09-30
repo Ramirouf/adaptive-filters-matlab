@@ -51,6 +51,10 @@ end
 colors = struct('SG', [0 0 0.9], 'fKF', [0.85 0 0], 'sKF', [0.7 0 0.7], ...
                 'vKF', [0.4 0.4 0.4], 'KF', [0 0.65 0.75]);
 fig = figure('visible', 'off');
+try
+  theme(fig, 'light');   % MATLAB R2025a+ otherwise follows a dark system theme; Octave has no theme()
+catch
+end
 hold on;
 for c = 1:C
   if curves{c, 2} == 0

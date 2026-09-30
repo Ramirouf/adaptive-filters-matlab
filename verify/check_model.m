@@ -44,7 +44,7 @@ for beta_star = [0.2 1 2]
   D = max(max((1:n)' / n - F), max(F - (0:n-1)' / n));
   ok = check(sprintf('noise: KS distance to exact CDF, beta* = %.1f', beta_star), D, ...
              D < 1.63 / sqrt(n)) && ok;
-  if beta_star >= 1   % at beta* = 0.2 the kurtosis is ~770 and var() is too noisy
+  if beta_star >= 1   % at beta* = 0.2 the excess kurtosis is ~1960 and var() is too noisy
     ok = check(sprintf('noise: sample variance = 1, beta* = %.1f', beta_star), var(e), ...
                abs(var(e) - 1) < 0.03) && ok;
   end
