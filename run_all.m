@@ -1,4 +1,5 @@
-% RUN_ALL  Checks, cross-validation, and Figs. 3-4 of Szczecinski, Benesty & Kuhn (2026).
+% RUN_ALL  Checks, cross-validation, Figs. 3-4 of Szczecinski, Benesty & Kuhn (2026), and a
+%          comparison with the published Fig. 3 curves.
 %
 %   octave --no-gui run_all.m        full run, N = 100 as in the paper
 %   >> QUICK = true; run_all          N = 10, fits MATLAB Online's 15-minute compute limit
@@ -62,5 +63,8 @@ for i = 1:numel(variants)
           a1.floor_db, a2.t_conv, a1.t_conv, a2.t_conv / a1.t_conv);
 end
 
-fprintf('\nmodel checks: %s   cross-validation: %s   total time %.0f s\n', ...
-        mat2str(ok_model), mat2str(ok_python), toc(t_start));
+% ---- against the published curves: markers read off Figs. 3a and 3b ---------
+ok_paper = compare_paper(root);
+
+fprintf('\nmodel checks: %s   cross-validation: %s   paper markers: %s   total time %.0f s\n', ...
+        mat2str(ok_model), mat2str(ok_python), mat2str(ok_paper), toc(t_start));

@@ -38,6 +38,8 @@ sim/                      one panel of Fig. 3 or 4: run, plot, save
 verify/check_model.m      checks against the paper and closed-form results
 verify/compare_python.m   cross-validation against the Python reproduction
 verify/export_reference.py  writes verify/reference/ from the Python code
+verify/compare_paper.m    our Figs. 3a-3b against the markers of the published figures
 data/h.csv                the room impulse response of Fig. 2 (data/make_h.py)
+data/paper_fig3_markers.csv  markers read off the paper's Figs. 3a-3b (data/digitize_fig3.py)
 DECISIONS.md              what was decided, including values the paper leaves unstated
 ```

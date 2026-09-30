@@ -50,6 +50,14 @@
 - **Decided:** `~/Documents/adaptive-filters-matlab`.
 - **Why:** a git repo inside a synced Drive folder risks conflicted copies of `.git` files.
 
-## Open
+## 2026-09-29: Check against the published curves, not only against Python
 
-- Golden vectors for Project 2 (FIR low-pass, Q1.15): planned in this repo as `golden/`, but they have nothing to do with the paper. Decide whether they live here or in the Project 2 repo.
+- **Decided:** the markers on the fKF, sKF and KF curves of Figs. 3a and 3b (27 points; SG has none) are read off a 400 dpi render of the paper by `data/digitize_fig3.py` and stored in `data/paper_fig3_markers.csv`. `verify/compare_paper.m` compares our curves with them (tolerance 1 dB); `run_all.m` runs it.
+- **Why:** agreement with the Python code shows two implementations compute the same thing; only a comparison with the published figures checks the reproduction itself. Result at N = 100: largest gap 0.52 dB, within 0.2 dB while the curves are still falling.
+- **Also answered:** an apparent early-transient difference in the Fig. 3a sKF, seen on a low-resolution render of the page, was a misreading. At 400 dpi the paper's sKF matches ours (-7.06 dB against -7.20 dB at 1 s).
+
+## 2026-09-29: No golden vectors in this repo
+
+- **Decided:** the FIR golden vectors for the Verilog project live in that project's repo, next to the RTL they check.
+- **Why:** they have nothing to do with the paper, and the golden model must change in the same commit as the RTL's rounding and saturation rule.
+- **Rejected:** a `golden/` folder here, copied across repos.
