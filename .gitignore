@@ -1,0 +1,7 @@
+.DS_Store
+*.asv
+octave-workspace
+__pycache__/
+
+# the paper's publisher PDF is copyrighted
+*.pdf
